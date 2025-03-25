@@ -1,0 +1,23 @@
+CREATE TABLE Livres (
+    ID_livre INTEGER PRIMARY KEY,
+    Titre TEXT,
+    Auteur TEXT,
+    Annee_publication INTEGER,
+    Quantite INTEGER
+);
+
+CREATE TABLE Utilisateurs (
+    ID_utilisateur INTEGER PRIMARY KEY,
+    Nom TEXT,
+    Email TEXT
+);
+
+CREATE TABLE Emprunts (
+    ID_emprunt INTEGER PRIMARY KEY AUTOINCREMENT,
+    ID_utilisateur INTEGER,
+    ID_livre INTEGER,
+    Date_emprunt TEXT,
+    Date_retour TEXT,
+    FOREIGN KEY(ID_utilisateur) REFERENCES Utilisateurs(ID_utilisateur),
+    FOREIGN KEY(ID_livre) REFERENCES Livres(ID_livre)
+);
